@@ -106,7 +106,7 @@ test.describe('ACME Bank', () => {
 test.afterAll(async() => {
 
   // Close the batch and report visual differences to the console.
-  // Note that it forces JUnit to wait synchronously for all visual checkpoints to complete.
+  // Note that it forces Playwright to wait synchronously for all visual checkpoints to complete.
   const results = await Runner.getAllTestResults();
   console.log('Visual test results', results);
 });
