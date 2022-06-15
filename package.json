@@ -1,5 +1,5 @@
 {
-  "name": "example-playwright-typescript-ultrafastgrid",
+  "name": "example-playwright-typescript-ufg",
   "version": "2.0.0",
   "description": "An example tutorial for Playwright TypeScript using Applitools Ultrafast Grid",
   "main": "index.js",
