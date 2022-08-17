@@ -22,7 +22,7 @@ test.beforeAll(async() => {
   // Create a new batch for tests.
   // A batch is the collection of visual checkpoints for a test suite.
   // Batches are displayed in the dashboard, so use meaningful names.
-  Batch = new BatchInfo({name: 'Applitools Example: Playwright TypeScript with the Ultrafast Grid'});
+  Batch = new BatchInfo({name: 'Example: Playwright TypeScript with the Ultrafast Grid'});
 
   // Create a configuration for Applitools Eyes.
   Config = new Configuration();
