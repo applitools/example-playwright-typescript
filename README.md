@@ -1,6 +1,6 @@
 # Applitools Tutorial: Playwright TypeScript with the Ultrafast Grid
 
-This is the example project for the [Playwright TypeScript tutorial](https://applitools.com/tutorials/playwright.html).
+This is the example project for the [Playwright TypeScript tutorial](https://applitools.com/tutorials/quickstart/web/playwright).
 It shows how to start automating visual tests
 with [Applitools Eyes](https://applitools.com/platform/eyes/)
 and the [Ultrafast Grid](https://applitools.com/platform/ultrafast-grid/)
@@ -40,4 +40,4 @@ npm test
 ```
 
 **For full instructions on running this project, take our
-[Playwright TypeScript tutorial](https://applitools.com/tutorials/playwright.html)!**
+[Playwright TypeScript tutorial](https://applitools.com/tutorials/quickstart/web/playwright)!**
