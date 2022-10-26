@@ -32,7 +32,7 @@ npx playwright install
 The main test case spec is [`acme-bank.spec.ts`](tests/acme-bank.spec.ts).
 
 To execute tests, set the `APPLITOOLS_API_KEY` environment variable
-to your [account's API key](https://applitools.com/tutorials/getting-started/setting-up-your-environment.html),
+to your [account's API key](https://applitools.com/tutorials/guides/getting-started/registering-an-account),
 and then run:
 
 ```
