@@ -1,6 +1,6 @@
 {
   "name": "example-playwright-typescript-ufg",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "An example tutorial for Playwright TypeScript using Applitools Ultrafast Grid",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Applitools Team <team@applitools.com> (http://www.applitools.com/)",
   "license": "Apache License 2.0",
   "devDependencies": {
-    "@applitools/eyes-playwright": "^1.12.1",
-    "@playwright/test": "^1.22.2"
+    "@applitools/eyes-playwright": "^1.13.0",
+    "@playwright/test": "^1.29.1"
   }
 }
