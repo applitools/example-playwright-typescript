@@ -21,7 +21,7 @@ test.beforeAll(async() => {
 
   // Create a new batch for tests.
   // A batch is the collection of visual checkpoints for a test suite.
-  // Batches are displayed in the dashboard, so use meaningful names.
+  // Batches are displayed in the Eyes Test Manager, so use meaningful names.
   Batch = new BatchInfo({name: 'Example: Playwright TypeScript with the Ultrafast Grid'});
 
   // Create a configuration for Applitools Eyes.
@@ -68,7 +68,7 @@ test.describe('ACME Bank', () => {
   // This test covers login for the Applitools demo site, which is a dummy banking app.
   // The interactions use typical Playwright calls,
   // but the verifications use one-line snapshot calls with Applitools Eyes.
-  // If the page ever changes, then Applitools will detect the changes and highlight them in the dashboard.
+  // If the page ever changes, then Applitools will detect the changes and highlight them in the Eyes Test Manager.
   // Traditional assertions that scrape the page for text values are not needed here.
   test('log into a bank account', async ({ page }) => {
 
@@ -95,7 +95,7 @@ test.describe('ACME Bank', () => {
     await eyes.closeAsync();
 
     // Warning: `eyes.closeAsync()` will NOT wait for visual checkpoints to complete.
-    // You will need to check the Applitools dashboard for visual results per checkpoint.
+    // You will need to check the Eyes Test Manager for visual results per checkpoint.
     // Note that "unresolved" and "failed" visual checkpoints will not cause the Playwright test to fail.
 
     // If you want the Playwright test to wait synchronously for all checkpoints to complete, then use `eyes.close()`.
