@@ -59,10 +59,24 @@ test.describe('ACME Bank', () => {
     // Each test should open its own Eyes for its own snapshots.
     // It is a recommended practice to set all four inputs below:
     await eyes.open(
-      page,                             // The Playwright page object to "watch"
-      'ACME Bank',                      // The name of the app under test
-      test.info().title,                // The name of the test case
-      { width: 1024, height: 768 });    // The viewport size for the local browser
+      
+      // The Playwright page object to "watch"
+      page,
+      
+      // The name of the application under test.
+      // All tests for the same app should share the same app name.
+      // Set this name wisely: Applitools features rely on a shared app name across tests.
+      'ACME Bank',
+      
+      // The name of the test case for the given application.
+      // Additional unique characteristics of the test may also be specified as part of the test name,
+      // such as localization information ("Home Page - EN") or different user permissions ("Login by admin"). 
+      test.info().title,
+      
+      // The viewport size for the local browser.
+      // Eyes will resize the web browser to match the requested viewport size.
+      // This parameter is optional but encouraged in order to produce consistent results.
+      { width: 1024, height: 768 });
   });
   
   // This test covers login for the Applitools demo site, which is a dummy banking app.
