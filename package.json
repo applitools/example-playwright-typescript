@@ -1,7 +1,7 @@
 {
   "name": "example-playwright-typescript",
   "version": "2.1.0",
-  "description": "An example tutorial for Playwright TypeScript using Applitools Ultrafast Grid",
+  "description": "An example tutorial for Playwright TypeScript",
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --project chromium"
