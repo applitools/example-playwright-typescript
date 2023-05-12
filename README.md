@@ -1,10 +1,9 @@
-# Applitools Example: Playwright TypeScript with the Ultrafast Grid
+# Applitools Example: Playwright in TypeScript
 
 This is the example project for the [Playwright TypeScript tutorial](https://applitools.com/tutorials/quickstart/web/playwright/typescript).
 It shows how to start automating visual tests
 with [Applitools Eyes](https://applitools.com/platform/eyes/)
-and the [Ultrafast Grid](https://applitools.com/platform/ultrafast-grid/)
-using [Playwright](https://playwright.dev/) in TypeScript.
+and [Playwright](https://playwright.dev/) in TypeScript.
 
 It uses:
 
@@ -14,6 +13,9 @@ It uses:
 * [Chromium](https://www.chromium.org/chromium-projects/) as the local browser for testing
 * [npm](https://www.npmjs.com/) for dependency management
 * [Applitools Eyes](https://applitools.com/platform/eyes/) for visual testing
+
+It can also run tests with:
+
 * [Applitools Ultrafast Grid](https://applitools.com/platform/ultrafast-grid/) for cross-browser execution
 
 To run this example project, you'll need:
@@ -30,6 +32,8 @@ npx playwright install
 ```
 
 The main test case spec is [`acme-bank.spec.ts`](tests/acme-bank.spec.ts).
+By default, the project will run tests with Ultrafast Grid.
+You can change this setting in the test spec.
 
 To execute tests, set the `APPLITOOLS_API_KEY` environment variable
 to your [account's API key](https://applitools.com/tutorials/guides/getting-started/registering-an-account),

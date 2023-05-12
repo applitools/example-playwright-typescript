@@ -1,28 +1,50 @@
 // This test case spec contains everything needed to run a full visual test against the ACME bank site.
-// It runs the test once locally, and then it performs cross-browser testing against multiple unique browsers in Applitools Ultrafast Grid.
+// It runs the test once locally.
+// If you use the Ultrafast Grid, then it performs cross-browser testing against multiple unique browsers.
 
 import { test } from '@playwright/test';
-import { BatchInfo, Configuration, VisualGridRunner, BrowserType, DeviceName, ScreenOrientation, Eyes, Target } from '@applitools/eyes-playwright';
+import {
+  BatchInfo,
+  Configuration,
+  EyesRunner,
+  ClassicRunner,
+  VisualGridRunner,
+  BrowserType,
+  DeviceName,
+  ScreenOrientation,
+  Eyes,
+  Target
+} from '@applitools/eyes-playwright';
+
+// Settings
+export const USE_ULTRAFAST_GRID: boolean = true;
 
 // Applitools objects to share for all tests
 export let Batch: BatchInfo;
 export let Config: Configuration;
-export let Runner: VisualGridRunner;
+export let Runner: EyesRunner;
 
-// This method sets up the configuration for running visual tests in the Ultrafast Grid.
+// This method sets up the configuration for running visual tests.
 // The configuration is shared by all tests in a test suite, so it belongs in a `beforeAll` method.
 // If you have more than one test class, then you should abstract this configuration to avoid duplication.
 test.beforeAll(async() => {
 
-  // Create the runner for the Ultrafast Grid.
-  // Concurrency refers to the number of visual checkpoints Applitools will perform in parallel.
-  // Warning: If you have a free account, then concurrency will be limited to 1.
-  Runner = new VisualGridRunner({ testConcurrency: 5 });
+  if (USE_ULTRAFAST_GRID) {
+    // Create the runner for the Ultrafast Grid.
+    // Concurrency refers to the number of visual checkpoints Applitools will perform in parallel.
+    // Warning: If you have a free account, then concurrency will be limited to 1.
+    Runner = new VisualGridRunner({ testConcurrency: 5 });
+  }
+  else {
+    // Create the classic runner.
+    Runner = new ClassicRunner();
+  }
 
   // Create a new batch for tests.
   // A batch is the collection of visual checkpoints for a test suite.
   // Batches are displayed in the Eyes Test Manager, so use meaningful names.
-  Batch = new BatchInfo({name: 'Example: Playwright TypeScript with the Ultrafast Grid'});
+  const runnerName = (USE_ULTRAFAST_GRID) ? 'Ultrafast Grid' : 'Classic runner'
+  Batch = new BatchInfo({name: `Example: Playwright TypeScript with the ${runnerName}`});
 
   // Create a configuration for Applitools Eyes.
   Config = new Configuration();
@@ -30,16 +52,20 @@ test.beforeAll(async() => {
   // Set the batch for the config.
   Config.setBatch(Batch);
 
-  // Add 3 desktop browsers with different viewports for cross-browser testing in the Ultrafast Grid.
-  // Other browsers are also available, like Edge and IE.
-  Config.addBrowser(800, 600, BrowserType.CHROME);
-  Config.addBrowser(1600, 1200, BrowserType.FIREFOX);
-  Config.addBrowser(1024, 768, BrowserType.SAFARI);
+  // If running tests on the Ultrafast Grid, configure browsers.
+  if (USE_ULTRAFAST_GRID) {
 
-  // Add 2 mobile emulation devices with different orientations for cross-browser testing in the Ultrafast Grid.
-  // Other mobile devices are available, including iOS.
-  Config.addDeviceEmulation(DeviceName.Pixel_2, ScreenOrientation.PORTRAIT);
-  Config.addDeviceEmulation(DeviceName.Nexus_10, ScreenOrientation.LANDSCAPE);
+    // Add 3 desktop browsers with different viewports for cross-browser testing in the Ultrafast Grid.
+    // Other browsers are also available, like Edge and IE.
+    Config.addBrowser(800, 600, BrowserType.CHROME);
+    Config.addBrowser(1600, 1200, BrowserType.FIREFOX);
+    Config.addBrowser(1024, 768, BrowserType.SAFARI);
+  
+    // Add 2 mobile emulation devices with different orientations for cross-browser testing in the Ultrafast Grid.
+    // Other mobile devices are available.
+    Config.addDeviceEmulation(DeviceName.iPhone_11, ScreenOrientation.PORTRAIT);
+    Config.addDeviceEmulation(DeviceName.Nexus_10, ScreenOrientation.LANDSCAPE);
+  }
 });
 
 // This "describe" method contains related test cases with per-test setup and cleanup.
@@ -106,14 +132,7 @@ test.describe('ACME Bank', () => {
   test.afterEach(async () => {
 
     // Close Eyes to tell the server it should display the results.
-    await eyes.closeAsync();
-
-    // Warning: `eyes.closeAsync()` will NOT wait for visual checkpoints to complete.
-    // You will need to check the Eyes Test Manager for visual results per checkpoint.
-    // Note that "unresolved" and "failed" visual checkpoints will not cause the Playwright test to fail.
-
-    // If you want the Playwright test to wait synchronously for all checkpoints to complete, then use `eyes.close()`.
-    // If any checkpoints are unresolved or failed, then `eyes.close()` will make the Playwright test fail.
+    await eyes.close();
   });
 });
 
