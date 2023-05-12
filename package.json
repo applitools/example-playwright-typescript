@@ -9,7 +9,7 @@
   "author": "Applitools Team <team@applitools.com> (http://www.applitools.com/)",
   "license": "Apache License 2.0",
   "devDependencies": {
-    "@applitools/eyes-playwright": "^1.13.0",
-    "@playwright/test": "^1.29.1"
+    "@applitools/eyes-playwright": "^1.16.1",
+    "@playwright/test": "^1.33.0"
   }
 }
