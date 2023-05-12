@@ -80,7 +80,7 @@ test.describe('ACME Bank', () => {
   // This method sets up each test with its own Applitools Eyes object.
   test.beforeEach(async ({ page }) => {
 
-    // Create the Applitools Eyes object connected to the VisualGridRunner and set its configuration.
+    // Create the Applitools Eyes object connected to the runner and set its configuration.
     eyes = new Eyes(Runner, Config);
 
     // Open Eyes to start visual testing.
