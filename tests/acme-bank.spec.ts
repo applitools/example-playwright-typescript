@@ -16,7 +16,9 @@ import {
   Target
 } from '@applitools/eyes-playwright';
 
-// Settings
+// Settings to control how tests are run.
+// These could be set by environment variables or other input mechanisms.
+// They are hard-coded here to keep the example project simple.
 export const USE_ULTRAFAST_GRID: boolean = true;
 
 // Applitools objects to share for all tests
