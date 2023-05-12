@@ -45,7 +45,7 @@ test.beforeAll(async() => {
   // Create a new batch for tests.
   // A batch is the collection of visual checkpoints for a test suite.
   // Batches are displayed in the Eyes Test Manager, so use meaningful names.
-  const runnerName = (USE_ULTRAFAST_GRID) ? 'Ultrafast Grid' : 'Classic runner'
+  const runnerName = (USE_ULTRAFAST_GRID) ? 'Ultrafast Grid' : 'Classic runner';
   Batch = new BatchInfo({name: `Example: Playwright TypeScript with the ${runnerName}`});
 
   // Create a configuration for Applitools Eyes.
