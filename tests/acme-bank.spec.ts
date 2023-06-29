@@ -104,7 +104,7 @@ test.describe('ACME Bank', () => {
       // The viewport size for the local browser.
       // Eyes will resize the web browser to match the requested viewport size.
       // This parameter is optional but encouraged in order to produce consistent results.
-      { width: 1024, height: 768 });
+      { width: 1200, height: 600 });
   });
   
   // This test covers login for the Applitools demo site, which is a dummy banking app.
