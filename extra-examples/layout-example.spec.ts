@@ -45,11 +45,10 @@ test.describe('ACME Bank', () => {
 
         // Full Page - Visual AI Assertion
         await eyes.check('Main page', Target.window().fully()
-			// Uncomment to apply Layout regions and have test pass
-			/* .layoutRegions(
+			.layoutRegions(
 				'.dashboardOverview_accountBalances__3TUPB',
 				'.dashboardTable_dbTable___R5Du'
-			) */
+			)
 		);
     });
 
