@@ -41,16 +41,16 @@ test.describe('ACME Bank', () => {
         await page.locator('id=username').fill('user');
         await page.locator('id=password').fill('password');
         await page.locator('id=log-in').click();
-		await page.locator('css=.dashboardNav_navContainer__kA4wD').waitFor({state: 'attached'});
+        await page.locator('css=.dashboardNav_navContainer__kA4wD').waitFor({state: 'attached'});
 
         // Full Page - Visual AI Assertion
         await eyes.check('Main page', Target.window().fully()
-			// Uncomment to apply Layout regions and have test pass
-			/* .layoutRegions(
-				'.dashboardOverview_accountBalances__3TUPB',
-				'.dashboardTable_dbTable___R5Du'
-			) */
-		);
+            // Uncomment to apply Layout regions and have test pass
+            /* .layoutRegions(
+                '.dashboardOverview_accountBalances__3TUPB',
+                '.dashboardTable_dbTable___R5Du'
+            ) */
+        );
     });
 
     test.afterEach(async () => {
