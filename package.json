@@ -1,15 +1,15 @@
 {
-  "name": "example-playwright-typescript",
-  "version": "2.1.0",
-  "description": "An example tutorial for Playwright TypeScript",
-  "main": "index.js",
-  "scripts": {
-    "test": "npx playwright test --project chromium"
-  },
-  "author": "Applitools Team <team@applitools.com> (http://www.applitools.com/)",
-  "license": "Apache License 2.0",
-  "devDependencies": {
-    "@applitools/eyes-playwright": "^1.17.15",
-    "@playwright/test": "^1.36.0"
-  }
+    "name": "example-playwright-typescript",
+    "version": "2.1.0",
+    "description": "An example tutorial for Playwright TypeScript",
+    "main": "index.js",
+    "scripts": {
+        "test": "npx playwright test --project chromium"
+    },
+    "author": "Applitools Team <team@applitools.com> (http://www.applitools.com/)",
+    "license": "Apache License 2.0",
+    "devDependencies": {
+        "@applitools/eyes-playwright": "^1.22.4",
+        "@playwright/test": "^1.39.0"
+    }
 }
