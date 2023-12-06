@@ -9,7 +9,7 @@ test.beforeAll(async() => {
 
     // Configure Applitools SDK to run on the Ultrafast Grid
     Runner = new VisualGridRunner({ testConcurrency: 5 });
-    Batch = new BatchInfo({name: `Applitools Quickstart`});
+    Batch = new BatchInfo({name: `Playwright Typescript Quickstart`});
 
     Config = new Configuration();
     Config.setBatch(Batch);
