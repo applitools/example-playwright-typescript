@@ -29,7 +29,7 @@ test.describe('ACME Bank', () => {
 
         // Start Applitools Visual AI Test
         // Args: Playwright Page, App Name, Test Name, Viewport Size for local driver
-        await eyes.open(page, 'ACME Bank', `Playwright Typescript: ${test.info().title}`, { width: 1200, height: 600 })
+        await eyes.open(page, 'ACME Bank', `Playwright Typescript: Quickstart`, { width: 1200, height: 600 })
     });
     
     test('log into a bank account', async ({ page }) => {
