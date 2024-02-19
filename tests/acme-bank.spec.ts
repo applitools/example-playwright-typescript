@@ -54,8 +54,9 @@ test.describe('ACME Bank', () => {
     });
 
     test.afterEach(async () => {
-        // End Applitools Visual AI Test
-        await eyes.close();
+      // End Applitools Visual AI Test
+      //bruh moment
+      await eyes.close();
     });
 });
 
