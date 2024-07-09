@@ -41,7 +41,7 @@ test.describe('ACME Bank', () => {
         await page.locator('id=username').fill('user');
         await page.locator('id=password').fill('password');
         await page.locator('id=log-in').click();
-        await page.locator('css=.dashboardNav_navContainer__kA4wD').waitFor({state: 'attached'});
+		await page.waitForURL('https://sandbox.applitools.com/bank/dashboard?layoutAlgo=true');
 
         // Full Page - Visual AI Assertion
         await eyes.check('Main page', Target.window().fully()
