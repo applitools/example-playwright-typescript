@@ -5,11 +5,11 @@ export let Batch: BatchInfo;
 export let Config: Configuration;
 export let Runner: EyesRunner;
 
-test.beforeAll(async() => {
+test.beforeAll(async () => {
 
     // Configure Applitools SDK to run on the Ultrafast Grid
     Runner = new VisualGridRunner({ testConcurrency: 5 });
-    Batch = new BatchInfo({name: `Playwright Typescript Quickstart`});
+    Batch = new BatchInfo({ name: `Playwright Typescript Quickstart` });
 
     Config = new Configuration();
     Config.setBatch(Batch);
@@ -17,8 +17,8 @@ test.beforeAll(async() => {
         { name: BrowserType.CHROME, width: 800, height: 600 },
         { name: BrowserType.FIREFOX, width: 1600, height: 1200 },
         { name: BrowserType.SAFARI, width: 1024, height: 768 },
-        { chromeEmulationInfo: { deviceName: DeviceName.iPhone_11, screenOrientation: ScreenOrientation.PORTRAIT} },
-        { chromeEmulationInfo: { deviceName: DeviceName.Nexus_10, screenOrientation: ScreenOrientation.LANDSCAPE} }
+        { chromeEmulationInfo: { deviceName: DeviceName.iPhone_11, screenOrientation: ScreenOrientation.PORTRAIT } },
+        { chromeEmulationInfo: { deviceName: DeviceName.Nexus_10, screenOrientation: ScreenOrientation.LANDSCAPE } }
     )
 });
 
@@ -31,17 +31,17 @@ test.describe('ACME Bank', () => {
         // Args: Playwright Page, App Name, Test Name, Viewport Size for local driver
         await eyes.open(page, 'ACME Bank', `Playwright Typescript: Quickstart`, { width: 1200, height: 600 })
     });
-    
+
     test('log into a bank account', async ({ page }) => {
-        await page.goto('https://sandbox.applitools.com/bank?layoutAlgo=true');
+        await page.goto('https://sandbox.applitools.com/bank');
 
         // Full Page - Visual AI Assertion
         await eyes.check('Login page', Target.window().fully());
 
-        await page.locator('id=username').fill('user');
-        await page.locator('id=password').fill('password');
+        await page.locator('id=username').fill('Chris');
+        await page.locator('id=password').fill('CorrectHorseBatteryStaple');
         await page.locator('id=log-in').click();
-        await page.waitForURL('https://sandbox.applitools.com/bank/dashboard?layoutAlgo=true');
+        await page.waitForURL('https://sandbox.applitools.com/bank/dashboard');
 
         // Full Page - Visual AI Assertion
         await eyes.check('Main page', Target.window().fully()
@@ -59,7 +59,7 @@ test.describe('ACME Bank', () => {
     });
 });
 
-test.afterAll(async() => {
+test.afterAll(async () => {
     // Wait for Ultrast Grid Renders to finish and gather results
     const results = await Runner.getAllTestResults();
     console.log('Visual test results', results);
